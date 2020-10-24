@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+long get_fibbonachi_via_recursion(int number)
+
+{
+  if (number == 1 || number == 2)
+
+  return 1; 
+
+  return get_fibbonachi_via_recursion(number - 1) +
+  get_fibbonachi_via_recursion(number - 2);
+}
+
+int main()
+{
+  int N;
+
+  printf("Input a number: ");
+  
+  scanf("%d", &N);
+  
+  printf("%d ", get_fibbonachi_via_recursion (N));
+
+  return 0;
+}
