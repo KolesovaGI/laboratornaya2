@@ -1,28 +1,38 @@
 #include <stdio.h>
+#include <conio.h>
 
-long get_fibbonachi_vai_cycle(int number)
+int main ()
 {
-  if (number == 1 || number == 2)
-  return 1;
+  int number;
 
-  return get_fibbonachi_vai_cycle(number - 1) +
-  get_fibbonachi_vai_cycle(number - 2);
-}
+  printf ("Enter a Fibonacci number: ")
 
-int main()
-{
-  int N;
-
-  printf("N=");
-  scanf("%d", &N);
-
-  for (int i = 1; i <= N; i++)
-
-  if (i!=N);
-  else printf("%ld ", get_fibbonachi_vai_cycle(i));
-
-  getchar();
-  getchar();
+  scanf ("%d", &number);
+  printf ("%li", get_fibonacci_via_cycle (number));
 
   return 0;
+}
+
+long int get_fibonacci_via_cycle (int number)
+{
+  long int num1 = 1;
+  long int num2 = 1;
+  long int num3;
+
+  if (number <= 2)
+  {
+    return 1;
+  }
+
+  else
+  {
+    for (i = 3; i <= number; i++)
+    {
+      num3 = num1 = num2;
+      num1 = num2;
+      num2 = num3;
+    }
+  }
+
+  return num2;
 }
