@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+
+char short_to_char(short);
+void pow(short, short, short);
+
+void main()
+{
+    short num, src, targ;
+    scanf("%hi %hi %hi", &num, &src, &targ);
+    if (targ > 36 || src > 10)
+    {
+        printf("ALARM!!!!!!");
+    }
+    else
+    {
+        pow(num, src, targ);
+    }
+
+}
+
+char short_to_char(short num)
+{
+    if (num >= 0 && num <= 9)
+    {
+        return num + '0';
+    }
+    else if (num >= 10 && num <= 36)
+    {
+        return num - 10 + 'A';
+    }
+    else
+    {
+        return ' ';
+    }
+}
+
+void pow(short num, short src, short targ)
+{
+    short result_in_ten = 0;
+    short line_lengt = sizeof(num) / sizeof(short);
+    char res[30];
+    for (short q = 0; q < 30; q++)
+    {
+        res[q] = 0;
+    }
+
+    while (num > 0)
+    {
+        static short pow = 1;
+        result_in_ten += num % 10 * pow;
+        pow *= src;
+        num /= 10;
+        if (num <= 0)
+        {
+            pow = 1;
+        }
+    }
+
+    while (result_in_ten > 0)
+    {
+        static short q = 0;
+        res[q++] = short_to_char(result_in_ten % targ);
+        result_in_ten /= targ;
+        if (result_in_ten <= 0)
+        {
+            q = 0;
+        }
+    }
+    short length = strlen(res);
+    for (long int q = 0; q < length / 2; q++)
+    {
+        res[q] += res[length - 1 - q];
+        res[length - 1 - q] = res[q] - res[length - q - 1];
+        res[q] -= res[length - 1 - q];
+    }
+
+    printf("%s\n\n\n\n\n", res);
+}
