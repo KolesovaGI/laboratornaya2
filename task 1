@@ -1,11 +1,12 @@
 #include <stdio.h>
-#include <conio.h>
+
+long int get_fibonacci_via_cycle (int number);
 
 int main ()
 {
   int number;
 
-  printf ("Enter a Fibonacci number: ")
+  printf ("Enter a Fibonacci number: ");
 
   scanf ("%d", &number);
   printf ("%li", get_fibonacci_via_cycle (number));
@@ -26,7 +27,7 @@ long int get_fibonacci_via_cycle (int number)
 
   else
   {
-    for (i = 3; i <= number; i++)
+    for (int i = 3; i <= number; i++)
     {
       num3 = num1 = num2;
       num1 = num2;
@@ -34,5 +35,7 @@ long int get_fibonacci_via_cycle (int number)
     }
   }
 
+  return num2;
+}
   return num2;
 }
