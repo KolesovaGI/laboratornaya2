@@ -1,79 +1,91 @@
 #include <stdio.h>
 #include <string.h>
 
-char short_to_char(short);
-void pow(short, short, short);
+char short_to_char (short);
+void pow (short, short, short);
 
-void main()
+void main ()
 {
-    short number, source, target;
-    scanf("%hi %hi %hi", &number, &source, &target);
-    if (target > 36 || source > 10)
-    {
-        printf("Error. You make a mistake ");
-    }
-    else
-    {
-        pow(number, source, target);
-    }
+  short number, source, target;
 
+  scanf("%hi %hi %hi", &number, &source, &target);
+
+  if (target > 36 || source > 10)
+  {
+    printf ("Error. You make a mistake ");
+  }
+  
+  else
+  {
+    pow (number, source, target);
+  }
 }
 
-char short_to_char(short number)
+char short_to_char (short number)
 {
-    if (number >= 0 && number <= 9)
-    {
-        return number + '0';
-    }
-    else if (number >= 10 && number <= 36)
-    {
-        return number - 10 + 'A';
-    }
-    else
-    {
-        return ' ';
-    }
+  if (number >= 0 && number <= 9)
+  {
+    return number + '0';
+  }
+
+  else if (number >= 10 && number <= 36)
+  {
+    return number - 10 + 'A';
+  }
+
+  else
+  {
+    return ' ';
+  }
 }
 
 void pow(short number, short source, short targ)
 {
-    short result_in_ten = 0;
-    short line_lengt = sizeof(number) / sizeof(short);
-    char res[30];
-    for (short q = 0; q < 30; q++)
-    {
-        res[q] = 0;
-    }
+  short result_in_ten = 0;
 
-    while (number > 0)
-    {
-        static short pow = 1;
-        result_in_ten += number % 10 * pow;
-        pow *= source;
-        number /= 10;
-        if (number <= 0)
-        {
-            pow = 1;
-        }
-    }
+  short line_lengt = sizeof(number) / sizeof(short);
+  char res[30];
 
-    while (result_in_ten > 0)
-    {
-        static short q = 0;
-        res[q++] = short_to_char(result_in_ten % targ);
-        result_in_ten /= targ;
-        if (result_in_ten <= 0)
-        {
-            q = 0;
-        }
-    }
-    short length = strlen(res);
-    for (long int q = 0; q < length / 2; q++)
-    {
-        res[q] += res[length - 1 - q];
-        res[length - 1 - q] = res[q] - res[length - q - 1];
-        res[q] -= res[length - 1 - q];
-    }
+  for (short q = 0; q < 30; q++)
+  {
+    res[q] = 0;
+  }
 
-    printf("%s\n\n\n\n\n", res);
+  while (number > 0)
+  {
+    static short pow = 1;
+
+    result_in_ten += number % 10 * pow;
+    pow *= source;
+    number /= 10;
+
+    if (number <= 0)
+    {
+      pow = 1;
+    }
+  }
+
+  while (result_in_ten > 0)
+  {
+    static short q = 0;
+
+    res[q++] = short_to_char(result_in_ten % targ);
+    result_in_ten /= targ;
+
+    if (result_in_ten <= 0)
+    {
+      q = 0;
+    }
+  }
+  
+  short length = strlen(res);
+
+  for (long int q = 0; q < length / 2; q++)
+  {
+    res[q] += res[length - 1 - q];
+    res[length - 1 - q] = res[q] - res[length - q - 1];
+    res[q] -= res[length - 1 - q];
+  }
+
+  printf("%s\n\n\n\n\n", res);
 }
