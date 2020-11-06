@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <string.h>
 
 char short_to_char(short);
@@ -7,28 +6,28 @@ void pow(short, short, short);
 
 void main()
 {
-    short num, src, targ;
-    scanf("%hi %hi %hi", &num, &src, &targ);
-    if (targ > 36 || src > 10)
+    short number, source, target;
+    scanf("%hi %hi %hi", &number, &source, &target);
+    if (target > 36 || source > 10)
     {
-        printf("Attention ");
+        printf("Error. You make a mistake ");
     }
     else
     {
-        pow(num, src, targ);
+        pow(number, source, target);
     }
 
 }
 
-char short_to_char(short num)
+char short_to_char(short number)
 {
-    if (num >= 0 && num <= 9)
+    if (number >= 0 && number <= 9)
     {
-        return num + '0';
+        return number + '0';
     }
-    else if (num >= 10 && num <= 36)
+    else if (number >= 10 && number <= 36)
     {
-        return num - 10 + 'A';
+        return number - 10 + 'A';
     }
     else
     {
@@ -36,23 +35,23 @@ char short_to_char(short num)
     }
 }
 
-void pow(short num, short src, short targ)
+void pow(short number, short source, short targ)
 {
     short result_in_ten = 0;
-    short line_lengt = sizeof(num) / sizeof(short);
+    short line_lengt = sizeof(number) / sizeof(short);
     char res[30];
     for (short q = 0; q < 30; q++)
     {
         res[q] = 0;
     }
 
-    while (num > 0)
+    while (number > 0)
     {
         static short pow = 1;
-        result_in_ten += num % 10 * pow;
-        pow *= src;
-        num /= 10;
-        if (num <= 0)
+        result_in_ten += number % 10 * pow;
+        pow *= source;
+        number /= 10;
+        if (number <= 0)
         {
             pow = 1;
         }
