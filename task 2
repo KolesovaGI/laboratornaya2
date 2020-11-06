@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-long get_fibbonachi_via_recursion(long);
+long get_fibbonachi_via_recursion(long num);
 
 void main()
 {
