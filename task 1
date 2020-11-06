@@ -37,5 +37,4 @@ long int get_fibonacci_via_cycle (int number)
 
   return num2;
 }
-  return num2;
-}
+ 
