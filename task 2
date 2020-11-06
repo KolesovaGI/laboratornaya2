@@ -1,25 +1,30 @@
 #include <stdio.h>
 
-long get_fibbonachi_via_recursion(int number)
+long get_fibbonachi_via_recursion(long);
 
+void main()
 {
-  if (number == 1 || number == 2)
-
-  return 1; 
-
-  return get_fibbonachi_via_recursion(number - 1) +
-  get_fibbonachi_via_recursion(number - 2);
+    long num;
+    scanf("%ld", &num);
+    printf("%ld", get_fibbonachi_via_recursion(num));
 }
 
-int main()
+long get_fibbonachi_via_recursion(long num)
 {
-  int N;
+    if (num == 0)
+    {
+        return 0;
+    }
+    else if (num == 1 || num == 2)
+    {
+        return 1;
+    }
 
-  printf("Input a number: ");
-  
-  scanf("%d", &N);
-  
-  printf("%d ", get_fibbonachi_via_recursion (N));
+    static long info[] = { 1, 1 };
+    if (info[num] == 0)
+    {
+        info[num] = get_fibbonachi_via_recursion(num - 1) + get_fibbonachi_via_recursion(num - 2);
+    }
 
-  return 0;
+    return info[num];
 }
