@@ -1,20 +1,20 @@
 #include <stdio.h>
 
-long int get_fibonacci_via_cycle (long number);
+long int get_fibbonachi_via_cycle (int);
 
 int main ()
 {
   int number;
 
-  printf ("Enter a Fibonacci number: ");
+  printf("Enter a Fibonacci number: \n");
 
-  scanf ("%ld", &number);
-  printf ("%li", get_fibonacci_via_cycle (number));
+  scanf ("%d", &number);
+  printf ("%li", get_fibbonachi_via_cycle(number));
 
   return 0;
 }
 
-long int get_fibonacci_via_cycle (long number)
+long int get_fibbonachi_via_cycle (int number)
 {
   long int num1 = 1;
   long int num2 = 1;
@@ -25,13 +25,13 @@ long int get_fibonacci_via_cycle (long number)
     return 1;
   }
 
-  else
+  else 
   {
-    for (int i = 3; i <= number; i++)
+    for (int i = 3; i <= number; i++) 
     {
-      num3 = num1 = num2;
-      num1 = num2;
-      num2 = num3;
+      num3 = num1 + num2; 
+      num1 = num2; 
+      num2 = num3; 
     }
   }
 
