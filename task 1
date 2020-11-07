@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-long int get_fibonacci_via_cycle (int number);
+long int get_fibonacci_via_cycle (long number);
 
 int main ()
 {
@@ -8,13 +8,13 @@ int main ()
 
   printf ("Enter a Fibonacci number: ");
 
-  scanf ("%d", &number);
+  scanf ("%ld", &number);
   printf ("%li", get_fibonacci_via_cycle (number));
 
   return 0;
 }
 
-long int get_fibonacci_via_cycle (int number)
+long int get_fibonacci_via_cycle (long number)
 {
   long int num1 = 1;
   long int num2 = 1;
@@ -37,4 +37,3 @@ long int get_fibonacci_via_cycle (int number)
 
   return num2;
 }
- 
