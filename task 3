@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <string.h>
 
 char short_to_char (short);
-void pow (short, short, short);
+void power (short, short, short);
 
-void main ()
+int main (void)
 {
   short number, source, target;
 
@@ -16,7 +17,7 @@ void main ()
   
   else
   {
-    pow (number, source, target);
+    power (number, source, target);
   }
 }
 
@@ -38,7 +39,7 @@ char short_to_char (short number)
   }
 }
 
-void pow(short number, short source, short targ)
+void power (short number, short source, short targ)
 {
   short result_in_ten = 0;
 
