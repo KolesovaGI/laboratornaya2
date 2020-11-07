@@ -20,7 +20,7 @@ long get_fibbonachi_via_recursion(long num)
         return 1;
     }
 
-    static long info[] = { 1, 1 };
+    static long info[] = {1, 1};
     if (info[num] == 0)
     {
         info[num] = get_fibbonachi_via_recursion(num - 1) + get_fibbonachi_via_recursion(num - 2);
