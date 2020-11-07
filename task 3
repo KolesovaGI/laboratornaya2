@@ -87,5 +87,5 @@ void power (short number, short source, short targ)
     res[q] -= res[length - 1 - q];
   }
 
-  printf("%s\n\n\n\n\n", res);
+  printf("%s \n", res);
 }
